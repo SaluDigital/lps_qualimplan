@@ -130,7 +130,7 @@ const Structure = () => (
       </div>
 
       <Reveal delay={100} className="structure-cta">
-        <a href={WA_LINK} target="_blank" rel="noopener" className="btn btn-primary">
+        <a href={WA_LINK} target="_blank" rel="noopener" className="btn btn-whatsapp">
           <Icon name="whatsapp" size={18} />
           Quero agendar minha avaliação
         </a>

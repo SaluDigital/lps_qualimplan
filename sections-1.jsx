@@ -82,7 +82,8 @@ const Header = () => {
           <a href="#processo">Processo</a>
           <a href="#faq">Dúvidas</a>
         </nav>
-        <a href={WA_LINK} target="_blank" rel="noopener" className="btn btn-primary">
+        <span className="header-notice">Não atendemos convênios</span>
+        <a href={WA_LINK} target="_blank" rel="noopener" className="btn btn-whatsapp">
           <Icon name="whatsapp" size={18} />
           Agendar avaliação
         </a>
@@ -250,7 +251,7 @@ const Hero = () => (
         </Reveal>
 
         <Reveal delay={620} className="hero-ctas">
-          <a href={WA_LINK} target="_blank" rel="noopener" className="btn btn-accent">
+          <a href={WA_LINK} target="_blank" rel="noopener" className="btn btn-whatsapp">
             <Icon name="whatsapp" size={18} />
             Agendar avaliação no WhatsApp
           </a>

@@ -28,8 +28,9 @@ if exist *.webp copy *.webp build\ >nul
 if exist *.png copy *.png build\ >nul
 if exist *.jpg copy *.jpg build\ >nul
 
-REM 5. The index.html is generated separately for reliability.
+REM 5. The index.html is copied from index-prod.html
 echo [4/4] Finalizing build...
+copy index-prod.html build\index.html >nul
 
 echo.
 echo ============================================================

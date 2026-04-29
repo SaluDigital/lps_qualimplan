@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cmd /c build.bat)",
+      "Bash(npx esbuild *)",
+      "Bash(grep -o \"straumann-grid,\\\\.benefits-grid{grid-template-columns:[^}]*}\" c:/Projetos/lps_qualimplan/build/styles.css)"
+    ]
+  }
+}

@@ -179,6 +179,10 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; col
 .btn-whatsapp {
   background: var(--qp-success);
   color: #fff;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35), inset 0 1px 0 rgba(255,255,255,0.15);
+}
+.btn-whatsapp:hover {
+  box-shadow: 0 14px 40px rgba(37, 211, 102, 0.45);
 }
 
 /* Chips */
@@ -354,6 +358,18 @@ section { position: relative; }
   transition: width .3s ease;
 }
 .header-nav a:hover::after { width: 100%; }
+.header-notice {
+  font-size: 11px;
+  font-family: var(--f-mono);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #c0392b;
+  border: 1.5px solid #e53e3e;
+  border-radius: 999px;
+  padding: 4px 12px;
+  white-space: nowrap;
+}
 
 /* ===== HERO ===== */
 .hero {
@@ -1862,6 +1878,127 @@ section { position: relative; }
   50% { box-shadow: 0 0 0 10px rgba(255,255,255,0); }
 }
 
+/* ===== INSURANCE POPUP ===== */
+.insurance-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+.insurance-popup-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 24, 28, 0.64);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.insurance-popup-card {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 520px);
+  overflow: hidden;
+  border-radius: 20px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.98), rgba(245, 251, 250, 0.98)),
+    #fff;
+  border: 2px solid rgba(192, 57, 43, 0.22);
+  box-shadow: 0 28px 80px rgba(7, 24, 28, 0.32), 0 0 0 8px rgba(255,255,255,0.12);
+  padding: clamp(28px, 5vw, 42px);
+  text-align: center;
+  animation: popupEnter .38s cubic-bezier(.2,.7,.2,1);
+}
+.insurance-popup-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 8px;
+  background: #c0392b;
+}
+.insurance-popup-close {
+  position: absolute;
+  top: 14px; right: 14px;
+  width: 38px; height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--qp-text-soft);
+  background: rgba(15, 31, 34, 0.06);
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+.insurance-popup-close svg {
+  transform: rotate(45deg);
+}
+.insurance-popup-close:hover {
+  background: rgba(192, 57, 43, 0.12);
+  color: #c0392b;
+  transform: scale(1.04);
+}
+.insurance-popup-icon {
+  width: 68px; height: 68px;
+  margin: 0 auto 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: #c0392b;
+  box-shadow: 0 14px 34px rgba(192, 57, 43, 0.28);
+}
+.insurance-popup-kicker {
+  margin: 0 0 8px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c0392b;
+}
+.insurance-popup-title {
+  margin: 0;
+  font-family: var(--f-display);
+  font-size: clamp(36px, 7vw, 56px);
+  font-weight: 500;
+  line-height: 0.98;
+  color: var(--qp-text);
+  letter-spacing: 0;
+}
+.insurance-popup-text {
+  margin: 18px auto 0;
+  max-width: 420px;
+  color: var(--qp-text-soft);
+  font-size: 16px;
+  line-height: 1.6;
+}
+.insurance-popup-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+.insurance-popup-secondary {
+  min-height: 52px;
+  padding: 0 22px;
+  border-radius: 999px;
+  border: 1px solid var(--qp-line);
+  background: #fff;
+  color: var(--qp-text);
+  font-weight: 700;
+  font-size: 14px;
+  transition: border-color .2s ease, color .2s ease, transform .2s ease;
+}
+.insurance-popup-secondary:hover {
+  border-color: #c0392b;
+  color: #c0392b;
+  transform: translateY(-1px);
+}
+@keyframes popupEnter {
+  from { opacity: 0; transform: translateY(18px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 /* ===== TWEAKS PANEL ===== */
 .tweaks-panel {
   position: fixed;
@@ -1997,11 +2134,13 @@ body.cards-flat .benefit-card:hover {
 @media (max-width: 680px) {
   body { font-size: 16px; }
   .header-nav { display: none; }
+  .header-notice { display: none; }
   .hero { padding-top: 120px; }
   .hero-video { aspect-ratio: 4 / 5; }
   .hero-trust-float { display: none; }
   .hero-badge-float { left: 0; bottom: -12px; }
-  .metrics-grid, .straumann-grid, .benefits-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .metrics-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .straumann-grid, .benefits-grid { grid-template-columns: 1fr; gap: 16px; }
   .benefit-card { min-height: 240px; padding: 24px 20px; }
   .straumann-card { min-height: 220px; padding: 24px 20px; }
   .metric-card { padding: 22px 18px; }
@@ -2015,10 +2154,17 @@ body.cards-flat .benefit-card:hover {
   .structure-items { grid-template-columns: 1fr; }
   .structure-item { border-right: 0 !important; }
   .indication-grid { grid-template-columns: 1fr; }
-  .social-stats { padding: 24px 16px; grid-template-columns: 1fr 1fr; }
+  .social-stats { padding: 24px 16px; grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr; }
   .wa-float { bottom: 16px; right: 16px; padding: 12px 18px 12px 12px; font-size: 13px; }
   .tweaks-panel { display: none; }
   .final-card { padding: 24px; }
   .final-ctas .btn { flex: 1; }
+  .insurance-popup { padding: 16px; align-items: end; }
+  .insurance-popup-card { border-radius: 18px; padding: 34px 20px 22px; }
+  .insurance-popup-title { font-size: 38px; }
+  .insurance-popup-text { font-size: 15px; }
+  .insurance-popup-actions { align-items: stretch; flex-direction: column; }
+  .insurance-popup-actions .btn,
+  .insurance-popup-secondary { width: 100%; }
 }

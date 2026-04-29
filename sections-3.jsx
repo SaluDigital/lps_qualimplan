@@ -1,7 +1,6 @@
 // ================================================
 // QUALIMPLAN — Sections (Part 3): Benefits, Social, Video2, FAQ, Final, Footer, WAFloat, Tweaks
 // ================================================
-const { useState, useEffect, useRef } = React;
 
 // ---- BENEFITS
 const BENEFITS = [
@@ -246,7 +245,7 @@ const Video2 = () => (
           </div>
         </Reveal>
         <Reveal delay={320}>
-          <a href={WA_LINK} target="_blank" rel="noopener" className="btn btn-primary">
+          <a href={WA_LINK} target="_blank" rel="noopener" className="btn btn-whatsapp">
             <Icon name="whatsapp" size={18} />
             Falar com a equipe
           </a>
@@ -330,7 +329,7 @@ const FinalCTA = () => (
           </p>
         </Reveal>
         <Reveal delay={280} className="final-ctas">
-          <a href={WA_LINK} target="_blank" rel="noopener" className="btn btn-accent">
+          <a href={WA_LINK} target="_blank" rel="noopener" className="btn btn-whatsapp">
             <Icon name="whatsapp" size={18} />
             Agendar avaliação no WhatsApp
           </a>
