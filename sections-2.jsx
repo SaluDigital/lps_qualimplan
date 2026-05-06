@@ -62,6 +62,58 @@ const Straumann = () => (
 );
 
 // ---- STRUCTURE
+const GALLERY_IMAGES = [
+  { src: "recepcao-3.webp",      alt: "Recepção Qualimplan" },
+  { src: "avaliacao-3.webp",     alt: "Sala de Avaliação" },
+  { src: "consultores-2-1.webp", alt: "Nossa Equipe" },
+  { src: "cafe.webp",            alt: "Espaço Café" },
+  { src: "raiox-1.webp",        alt: "Sala de RX" },
+  { src: "800.png",             alt: "Ambiente da clÃ­nica Qualimplan" },
+  { src: "posoperatorio-1.webp", alt: "Espaço de pós-operatório" },
+  { src: "consultorio-4.webp",   alt: "Consultório Qualimplan" },
+];
+
+const StructureCarousel = () => {
+  const VISIBLE = 3;
+  const total = GALLERY_IMAGES.length; // 5
+  const maxPos = total - VISIBLE;      // 2
+
+  const [pos, setPos] = useState(0);
+  const next = () => setPos(p => p >= maxPos ? 0 : p + 1);
+  const prev = () => setPos(p => p <= 0 ? maxPos : p - 1);
+
+  useEffect(() => {
+    const t = setTimeout(next, 2500);
+    return () => clearTimeout(t);
+  }, [pos]);
+
+  return (
+    <div className="structure-carousel">
+      <div
+        className="carousel-track"
+        style={{ transform: `translateX(-${pos * (100 / total)}%)` }}
+      >
+        {GALLERY_IMAGES.map((img, i) => (
+          <div key={i} className="carousel-slide">
+            <img src={img.src} alt={img.alt} />
+          </div>
+        ))}
+      </div>
+      <button className="carousel-btn carousel-prev" type="button" onClick={prev} aria-label="Anterior">
+        <Icon name="arrow" size={18} style={{ transform: "rotate(180deg)" }} />
+      </button>
+      <button className="carousel-btn carousel-next" type="button" onClick={next} aria-label="Próximo">
+        <Icon name="arrow" size={18} />
+      </button>
+      <div className="carousel-dots">
+        {Array.from({ length: maxPos + 1 }, (_, i) => (
+          <button key={i} type="button" className={"carousel-dot" + (i === pos ? " active" : "")} onClick={() => setPos(i)} aria-label={"Posição " + (i + 1)} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const STRUCTURE_ITEMS = [
   { title: "Cirurgiões-dentistas", sub: "Equipe multidisciplinar", icon: "users" },
   { title: "Salas de atendimento", sub: "Ambientes climatizados", icon: "door" },
@@ -93,41 +145,8 @@ const Structure = () => (
       </div>
 
       <Reveal delay={100}>
-        <div className="structure-gallery">
-          <div className="gallery-main">
-            <img src="recepcao-3.webp" alt="Recepção Qualimplan" />
-            <div className="gallery-overlay">
-              <strong>Recepção acolhedora</strong>
-            </div>
-          </div>
-          <div className="gallery-side">
-            <div className="gallery-item">
-              <img src="800.png" alt="Estrutura Clínica" />
-            </div>
-            <div className="gallery-item">
-              <img src="avaliacao-3.webp" alt="Sala de Avaliação" />
-            </div>
-            <div className="gallery-item">
-              <img src="consultores-2-1.webp" alt="Nossa Equipe" />
-            </div>
-            <div className="gallery-item">
-              <img src="cafe.webp" alt="Espaço Café" />
-            </div>
-          </div>
-        </div>
+        <StructureCarousel />
       </Reveal>
-
-      <div className="structure-items">
-        {STRUCTURE_ITEMS.map((s, i) => (
-          <Reveal key={i} delay={i * 60} className="structure-item">
-            <span className="structure-item-ico"><Icon name={s.icon} size={20} /></span>
-            <div className="structure-item-t">
-              <strong>{s.title}</strong>
-              <span>{s.sub}</span>
-            </div>
-          </Reveal>
-        ))}
-      </div>
 
       <Reveal delay={100} className="structure-cta">
         <a href={WA_LINK} target="_blank" rel="noopener" className="btn btn-whatsapp">
@@ -141,12 +160,11 @@ const Structure = () => (
 
 // ---- INDICATION
 const INDICATION_ITEMS = [
-  "Perderam 1 dente",
-  "Perderam vários dentes",
-  "Usam prótese móvel e querem avaliar outra opção",
-  "Querem voltar a mastigar com mais segurança",
-  "Desejam melhorar a estética do sorriso",
-  "Buscam uma solução com planejamento individualizado",
+  "Ausência de um dente",
+  "Ausência de vários dentes",
+  "Uso de prótese móvel com interesse em alternativa fixa",
+  "Busca por mais segurança na mastigação",
+  "Busca por melhoria estética do sorriso",
 ];
 
 const Indication = () => (

@@ -4,10 +4,10 @@
 
 // ---- BENEFITS
 const BENEFITS = [
-  { title: "Mais segurança para sorrir", text: "Em muitos casos, o implante está associado a maior estabilidade ao sorrir e a uma autoestima mais fortalecida no dia a dia.", icon: "smile" },
-  { title: "Melhora da mastigação", text: "Pode ajudar a recuperar conforto ao mastigar alimentos variados, sempre dependendo da avaliação individual do seu caso.", icon: "tooth" },
-  { title: "Mais estabilidade no dia a dia", text: "Uma solução fixa que pode devolver praticidade e conforto, reduzindo limitações do uso de prótese móvel.", icon: "shield" },
-  { title: "Preservação óssea", text: "O implante é uma alternativa que, em muitos casos, está associada à preservação da estrutura óssea da região." , icon: "crown" },
+  { title: "Mais segurança para sorrir", text: "Associado à maior estabilidade ao sorrir e autoestima mais fortalecida.", icon: "smile", img: "card2.webp" },
+  { title: "Melhora da mastigação", text: "Pode ajudar a recuperar conforto ao mastigar alimentos variados.", icon: "tooth", img: "card1.webp" },
+  { title: "Mais estabilidade no dia a dia", text: "Solução fixa que reduz as limitações do uso de prótese móvel.", icon: "shield", img: "card3.webp" },
+  { title: "Preservação óssea", text: "Em muitos casos, associado à preservação da estrutura óssea da região.", icon: "crown", img: "card4.webp" },
 ];
 
 const Benefits = () => (
@@ -33,9 +33,14 @@ const Benefits = () => (
       <div className="benefits-grid">
         {BENEFITS.map((b, i) => (
           <Reveal key={i} delay={i * 120} className="benefit-card">
-            <span className="benefit-ico"><Icon name={b.icon} size={24} /></span>
-            <h3 className="benefit-card-title">{b.title}</h3>
-            <p className="benefit-card-text">{b.text}</p>
+            <div className="benefit-card-img-wrap">
+              <img src={b.img} alt={b.title} className="benefit-card-img" />
+            </div>
+            <div className="benefit-card-body">
+              <span className="benefit-ico"><Icon name={b.icon} size={18} /></span>
+              <h3 className="benefit-card-title">{b.title}</h3>
+              <p className="benefit-card-text">{b.text}</p>
+            </div>
           </Reveal>
         ))}
       </div>

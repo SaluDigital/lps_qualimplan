@@ -28,6 +28,11 @@ const Icon = ({ name, size = 20, className = "", style = {} }) => {
     menu: <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round"/>,
     volume: <path d="M11 5L6 9H2v6h4l5 4V5zM15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a10 10 0 0 1 0 14.14" strokeLinecap="round" strokeLinejoin="round"/>,
     mute: <path d="M11 5L6 9H2v6h4l5 4V5zM23 9l-6 6M17 9l6 6" strokeLinecap="round" strokeLinejoin="round"/>,
+    frown: <g strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 15.5Q12 13 15 15.5"/><path d="M9 9h.01M15 9h.01"/></g>,
+    grimace: <g strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><rect x="8" y="15" width="8" height="2.5" rx="1"/><path d="M10 15v2.5M12 15v2.5M14 15v2.5"/><path d="M9 10h.01M15 10h.01"/><path d="M7.5 8l2.5 1.5M16.5 8l-2.5 1.5"/></g>,
+    denture: <g strokeLinecap="round" strokeLinejoin="round"><path d="M3 8h18v1c0 4.4-3.6 8-8 8s-8-3.6-8-8V8z"/><path d="M7 8V5.5M10 8V4M14 8V4M17 8V5.5"/><path d="M8.5 14c1 1.5 2.3 2.3 3.5 2.3s2.5-.8 3.5-2.3"/></g>,
+    broken: <g strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l8 3v7c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V5l8-3z"/><path d="M9 9l6 6M15 9l-6 6"/></g>,
+    fork: <g strokeLinecap="round" strokeLinejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2s2-.9 2-2V2M5 11v9M3 5h4"/><path d="M19 2v20M19 2a4 4 0 0 1 0 8"/></g>,
   };
   return (
     <svg

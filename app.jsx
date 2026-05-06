@@ -66,19 +66,6 @@ const InsurancePopup = () => {
         <h2 id="insurance-popup-title" className="insurance-popup-title">
           Não atendemos convênios
         </h2>
-        <p className="insurance-popup-text">
-          A Qualimplan realiza atendimentos particulares, com avaliação individualizada e transparência sobre cada etapa do tratamento.
-        </p>
-
-        <div className="insurance-popup-actions">
-          <a href={WA_LINK} target="_blank" rel="noopener" className="btn btn-whatsapp">
-            <Icon name="whatsapp" size={18} />
-            Agendar avaliação
-          </a>
-          <button className="insurance-popup-secondary" type="button" onClick={() => setOpen(false)}>
-            Entendi
-          </button>
-        </div>
       </div>
     </div>
   );

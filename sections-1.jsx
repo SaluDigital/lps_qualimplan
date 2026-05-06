@@ -335,12 +335,12 @@ const Metrics = () => (
 
 // ---- PAIN / IDENTIFICATION
 const PAIN_ITEMS = [
-  { label: "Dificuldade para mastigar", icon: "tooth" },
-  { label: "Vergonha ao sorrir", icon: "smile" },
-  { label: "Desconforto com prótese móvel", icon: "info" },
-  { label: "Insegurança ao falar", icon: "chat" },
-  { label: "Perda de confiança no dia a dia", icon: "heart" },
-  { label: "Evitar fotos e refeições em público", icon: "users" },
+  { label: "Dificuldade para mastigar", icon: "check" },
+  { label: "Vergonha ao sorrir", icon: "check" },
+  { label: "Desconforto com prótese móvel", icon: "check" },
+  { label: "Insegurança ao falar", icon: "check" },
+  { label: "Perda de confiança no dia a dia", icon: "check" },
+  { label: "Evitar fotos e refeições em público", icon: "check" },
 ];
 
 const Pain = () => (

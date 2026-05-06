@@ -777,12 +777,12 @@ section { position: relative; }
   background: var(--qp-surface);
   border: 1px solid var(--qp-line);
   border-radius: var(--r-md);
-  padding: 24px 22px;
+  padding: 20px 22px;
   transition: all .3s ease;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   gap: 14px;
-  min-height: 130px;
 }
 .pain-card:nth-child(even) { transform: translateY(24px); }
 .pain-card:hover {
@@ -1013,85 +1013,81 @@ section { position: relative; }
   color: var(--qp-primary-deep);
   z-index: 2;
 }
-/* Structure Gallery */
-.structure-gallery {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 16px;
-  margin-bottom: 48px;
-  height: 600px;
-}
-
-.gallery-main {
+/* Structure Carousel */
+.structure-carousel {
   position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 6;
   border-radius: var(--r-lg);
   overflow: hidden;
+  margin-bottom: 48px;
   box-shadow: var(--sh-lg);
 }
-
-.gallery-main img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.2, 0, 0.2, 1);
-}
-
-.gallery-main:hover img {
-  transform: scale(1.05);
-}
-
-.gallery-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(7, 24, 28, 0.7) 0%, transparent 50%);
+.carousel-track {
   display: flex;
-  align-items: flex-end;
-  padding: 32px;
-  color: #fff;
+  height: 100%;
+  transition: transform 0.55s cubic-bezier(0.2, 0, 0.2, 1);
 }
-
-.gallery-overlay strong {
-  font-family: var(--f-display);
-  font-size: 28px;
-  letter-spacing: -0.01em;
+.carousel-slide {
+  flex: 0 0 calc(100% / 3);
+  height: 100%;
+  padding-right: 10px;
+  box-sizing: border-box;
 }
-
-.gallery-side {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 16px;
-}
-
-.gallery-item {
-  position: relative;
-  border-radius: var(--r-md);
-  overflow: hidden;
-  box-shadow: var(--sh-md);
-}
-
-.gallery-item img {
+.carousel-slide:last-child { padding-right: 0; }
+.carousel-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.2, 0, 0.2, 1);
+  display: block;
+  border-radius: var(--r-md);
 }
-
-.gallery-item:hover img {
-  transform: scale(1.1);
+@media (max-width: 600px) {
+  .carousel-slide { flex: 0 0 100%; padding-right: 0; }
+  .carousel-slide img { border-radius: 0; }
 }
-
-@media (max-width: 992px) {
-  .structure-gallery {
-    grid-template-columns: 1fr;
-    height: auto;
-  }
-  .gallery-main {
-    aspect-ratio: 16 / 9;
-  }
-  .gallery-side {
-    aspect-ratio: 16 / 9;
-  }
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.92);
+  color: var(--qp-text);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.18);
+  transition: background .2s ease, transform .2s ease;
+  z-index: 2;
+}
+.carousel-btn:hover {
+  background: #fff;
+  transform: translateY(-50%) scale(1.08);
+}
+.carousel-prev { left: 16px; }
+.carousel-next { right: 16px; }
+.carousel-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 7px;
+  z-index: 2;
+}
+.carousel-dot {
+  height: 8px; width: 8px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.5);
+  transition: all .3s ease;
+  cursor: pointer;
+}
+.carousel-dot.active {
+  width: 26px;
+  background: #fff;
+}
+@media (max-width: 768px) {
+  .structure-carousel { aspect-ratio: 16 / 9; }
 }
 
 .structure-items {
@@ -1105,7 +1101,6 @@ section { position: relative; }
 .structure-item {
   padding: 28px 32px;
   display: flex;
-  gap: 18px;
   align-items: flex-start;
   border-right: 1px solid var(--qp-line);
   border-bottom: 1px solid var(--qp-line);
@@ -1310,14 +1305,34 @@ section { position: relative; }
   background: var(--qp-surface);
   border: 1px solid var(--qp-line-soft);
   border-radius: var(--r-lg);
-  padding: 36px 28px;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  min-height: 300px;
+  gap: 0;
   transition: all .4s ease;
   position: relative;
   overflow: hidden;
+}
+.benefit-card-img-wrap {
+  width: 100%;
+  height: 170px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.benefit-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s ease;
+}
+.benefit-card:hover .benefit-card-img { transform: scale(1.06); }
+.benefit-card-body {
+  padding: 20px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
 }
 .benefit-card:hover {
   transform: translateY(-6px);
@@ -1336,8 +1351,8 @@ section { position: relative; }
 }
 .benefit-card:hover::before { transform: scaleX(1); }
 .benefit-ico {
-  width: 56px; height: 56px;
-  border-radius: 14px;
+  width: 40px; height: 40px;
+  border-radius: 10px;
   background: var(--qp-primary-soft);
   color: var(--qp-primary-deep);
   display: grid;
@@ -1890,14 +1905,14 @@ section { position: relative; }
 .insurance-popup-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(7, 24, 28, 0.64);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(7, 24, 28, 0.28);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
 }
 .insurance-popup-card {
   position: relative;
   z-index: 1;
-  width: min(100%, 520px);
+  width: min(100%, 360px);
   overflow: hidden;
   border-radius: 20px;
   background:
@@ -1905,7 +1920,7 @@ section { position: relative; }
     #fff;
   border: 2px solid rgba(192, 57, 43, 0.22);
   box-shadow: 0 28px 80px rgba(7, 24, 28, 0.32), 0 0 0 8px rgba(255,255,255,0.12);
-  padding: clamp(28px, 5vw, 42px);
+  padding: clamp(20px, 4vw, 30px);
   text-align: center;
   animation: popupEnter .38s cubic-bezier(.2,.7,.2,1);
 }
@@ -1957,7 +1972,7 @@ section { position: relative; }
 .insurance-popup-title {
   margin: 0;
   font-family: var(--f-display);
-  font-size: clamp(36px, 7vw, 56px);
+  font-size: clamp(24px, 5vw, 34px);
   font-weight: 500;
   line-height: 0.98;
   color: var(--qp-text);
@@ -2145,7 +2160,8 @@ body.cards-flat .benefit-card:hover {
   .straumann-card { min-height: 220px; padding: 24px 20px; }
   .metric-card { padding: 22px 18px; }
   .metric-num { font-size: 42px; }
-  .pain-cards { grid-template-columns: 1fr; }
+  .pain-cards { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .pain-card { flex-direction: column; align-items: flex-start; padding: 16px 14px; }
   .pain-card:nth-child(even) { transform: none; }
   .pain-card:nth-child(even):hover { transform: translateY(-3px); }
   .structure-mosaic { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 140px; }
@@ -2160,11 +2176,9 @@ body.cards-flat .benefit-card:hover {
   .tweaks-panel { display: none; }
   .final-card { padding: 24px; }
   .final-ctas .btn { flex: 1; }
-  .insurance-popup { padding: 16px; align-items: end; }
-  .insurance-popup-card { border-radius: 18px; padding: 34px 20px 22px; }
-  .insurance-popup-title { font-size: 38px; }
-  .insurance-popup-text { font-size: 15px; }
-  .insurance-popup-actions { align-items: stretch; flex-direction: column; }
-  .insurance-popup-actions .btn,
-  .insurance-popup-secondary { width: 100%; }
+  .insurance-popup { padding: 12px; align-items: end; }
+  .insurance-popup-card { border-radius: 16px; padding: 16px 14px 14px; }
+  .insurance-popup-icon { width: 44px; height: 44px; margin-bottom: 10px; }
+  .insurance-popup-kicker { font-size: 10px; margin-bottom: 4px; }
+  .insurance-popup-title { font-size: 20px; }
 }
