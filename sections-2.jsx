@@ -66,32 +66,57 @@ const GALLERY_IMAGES = [
   { src: "recepcao-3.webp",      alt: "Recepção Qualimplan" },
   { src: "avaliacao-3.webp",     alt: "Sala de Avaliação" },
   { src: "consultores-2-1.webp", alt: "Nossa Equipe" },
-  { src: "cafe.webp",            alt: "Espaço Café" },
+  { src: "consultorio-4.webp",   alt: "Consultório Qualimplan" },
   { src: "raiox-1.webp",        alt: "Sala de RX" },
   { src: "800.png",             alt: "Ambiente da clÃ­nica Qualimplan" },
+  { src: "cafe.webp",            alt: "Espaço Café" },
   { src: "posoperatorio-1.webp", alt: "Espaço de pós-operatório" },
-  { src: "consultorio-4.webp",   alt: "Consultório Qualimplan" },
 ];
 
 const StructureCarousel = () => {
-  const VISIBLE = 3;
-  const total = GALLERY_IMAGES.length; // 5
-  const maxPos = total - VISIBLE;      // 2
-
+  const [visibleCount, setVisibleCount] = useState(() =>
+    typeof window !== "undefined" && window.innerWidth <= 600 ? 1 : 3
+  );
   const [pos, setPos] = useState(0);
+  const total = GALLERY_IMAGES.length;
+  const maxPos = Math.max(0, total - visibleCount);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return undefined;
+
+    const media = window.matchMedia("(max-width: 600px)");
+    const updateVisibleCount = (event) => {
+      setVisibleCount(event.matches ? 1 : 3);
+    };
+
+    updateVisibleCount(media);
+
+    if (typeof media.addEventListener === "function") {
+      media.addEventListener("change", updateVisibleCount);
+      return () => media.removeEventListener("change", updateVisibleCount);
+    }
+
+    media.addListener(updateVisibleCount);
+    return () => media.removeListener(updateVisibleCount);
+  }, []);
+
+  useEffect(() => {
+    setPos((current) => Math.min(current, maxPos));
+  }, [maxPos]);
+
   const next = () => setPos(p => p >= maxPos ? 0 : p + 1);
   const prev = () => setPos(p => p <= 0 ? maxPos : p - 1);
 
   useEffect(() => {
     const t = setTimeout(next, 2500);
     return () => clearTimeout(t);
-  }, [pos]);
+  }, [pos, maxPos]);
 
   return (
     <div className="structure-carousel">
       <div
         className="carousel-track"
-        style={{ transform: `translateX(-${pos * (100 / total)}%)` }}
+        style={{ transform: `translateX(-${pos * (100 / visibleCount)}%)` }}
       >
         {GALLERY_IMAGES.map((img, i) => (
           <div key={i} className="carousel-slide">

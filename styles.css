@@ -794,8 +794,8 @@ section { position: relative; }
 .pain-card-ico {
   width: 38px; height: 38px;
   border-radius: 10px;
-  background: var(--qp-primary-soft);
-  color: var(--qp-primary-deep);
+  background: rgba(181, 63, 69, 0.08);
+  color: #b53f45;
   display: grid;
   place-items: center;
 }

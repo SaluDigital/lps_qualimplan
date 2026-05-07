@@ -372,7 +372,7 @@ const Pain = () => (
         {PAIN_ITEMS.map((p, i) => (
           <Reveal key={i} delay={i * 80} className="pain-card">
             <span className="pain-card-ico">
-              <Icon name={p.icon} size={18} />
+              <Icon name="x" size={16} style={{ strokeWidth: 2 }} />
             </span>
             <span className="pain-card-label">{p.label}</span>
           </Reveal>

@@ -4,10 +4,10 @@
 
 // ---- BENEFITS
 const BENEFITS = [
-  { title: "Mais segurança para sorrir", text: "Associado à maior estabilidade ao sorrir e autoestima mais fortalecida.", icon: "smile", img: "card2.webp" },
-  { title: "Melhora da mastigação", text: "Pode ajudar a recuperar conforto ao mastigar alimentos variados.", icon: "tooth", img: "card1.webp" },
-  { title: "Mais estabilidade no dia a dia", text: "Solução fixa que reduz as limitações do uso de prótese móvel.", icon: "shield", img: "card3.webp" },
-  { title: "Preservação óssea", text: "Em muitos casos, associado à preservação da estrutura óssea da região.", icon: "crown", img: "card4.webp" },
+  { title: "Mais segurança para sorrir", text: "Associado à maior estabilidade ao sorrir e autoestima mais fortalecida.", icon: "smile", img: "card1.jpg" },
+  { title: "Melhora da mastigação", text: "Pode ajudar a recuperar conforto ao mastigar alimentos variados.", icon: "tooth", img: "card2.jpg" },
+  { title: "Mais estabilidade no dia a dia", text: "Solução fixa que reduz as limitações do uso de prótese móvel.", icon: "shield", img: "card4.jpg" },
+  { title: "Preservação óssea", text: "Em muitos casos, associado à preservação da estrutura óssea da região.", icon: "crown", img: "card3.jpg" },
 ];
 
 const Benefits = () => (
@@ -518,3 +518,4 @@ const Tweaks = () => {
 };
 
 Object.assign(window, { Benefits, Social, Video2, FAQ, FinalCTA, Footer, WAFloat, Tweaks });
+
