@@ -2,7 +2,7 @@
 // QUALIMPLAN — Sections (Part 2): Straumann, Structure, Indication, Process
 // ================================================
 
-const STRAUMANN_LOGO = "Straumann_Group.svg.png";
+const STRAUMANN_BADGE_LOGO = "Straumann_Group.svg.png";
 
 // ---- STRAUMANN
 const STRAUMANN_PILLARS = [
@@ -20,7 +20,7 @@ const Straumann = () => (
           <Reveal>
             <div className="straumann-badge">
               <img
-                src={STRAUMANN_LOGO}
+                src={STRAUMANN_BADGE_LOGO}
                 alt="Straumann Group"
                 className="straumann-badge-img"
               />
