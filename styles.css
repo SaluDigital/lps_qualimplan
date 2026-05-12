@@ -595,50 +595,6 @@ section { position: relative; }
   text-transform: uppercase;
 }
 
-/* Floating mini-badge on hero video */
-.hero-badge-float {
-  position: absolute;
-  bottom: -20px; left: -20px;
-  background: #fff;
-  padding: 14px 18px;
-  border-radius: var(--r-md);
-  box-shadow: var(--sh-md);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  z-index: 4;
-}
-.hero-badge-float-logo {
-  background: rgba(7, 24, 28, 0.78);
-  border: 1px solid rgba(255,255,255,0.14);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 18px 22px;
-}
-.hero-badge-float-logo-img {
-  width: clamp(150px, 18vw, 220px);
-  filter: brightness(0) invert(1);
-  opacity: 0.98;
-}
-.hero-badge-float-icon {
-  width: 36px; height: 36px;
-  border-radius: 10px;
-  background: var(--qp-accent-soft);
-  color: var(--qp-accent-deep);
-  display: grid;
-  place-items: center;
-}
-.hero-badge-float-text strong {
-  display: block;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--qp-text);
-}
-.hero-badge-float-text span {
-  font-size: 11px;
-  color: var(--qp-text-muted);
-}
-
 .hero-trust-float {
   position: absolute;
   top: 40px; right: -30px;
@@ -866,37 +822,16 @@ section { position: relative; }
 .straumann-badge {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
   padding: 14px 20px;
   border-radius: var(--r-md);
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.1);
   margin-bottom: 24px;
 }
-.straumann-badge-logo {
-  width: 36px; height: 36px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, var(--qp-primary), var(--qp-primary-deep));
-  display: grid;
-  place-items: center;
-  color: #fff;
-  font-family: var(--f-display);
-  font-weight: 600;
-  font-size: 18px;
-  font-style: italic;
-}
-.straumann-badge-text strong {
-  display: block;
-  font-size: 13px;
-  color: #fff;
-  font-weight: 600;
-}
-.straumann-badge-text span {
-  font-size: 11px;
-  color: rgba(255,255,255,0.5);
-  font-family: var(--f-mono);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.straumann-badge-img {
+  width: clamp(150px, 16vw, 220px);
+  filter: brightness(0) invert(1);
+  opacity: 0.98;
 }
 
 .straumann-grid {
@@ -2159,16 +2094,9 @@ body.cards-flat .benefit-card:hover {
   .hero { padding-top: 120px; }
   .hero-video { aspect-ratio: 4 / 5; }
   .hero-trust-float { display: none; }
-  .hero-badge-float { left: 0; bottom: -12px; }
   .hero-wordmark {
     width: min(72vw, 280px);
     margin-top: 0.08em;
-  }
-  .hero-badge-float-logo {
-    padding: 14px 16px;
-  }
-  .hero-badge-float-logo-img {
-    width: min(46vw, 180px);
   }
   .metrics-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
   .straumann-grid, .benefits-grid { grid-template-columns: 1fr; gap: 16px; }

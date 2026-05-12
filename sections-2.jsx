@@ -2,6 +2,8 @@
 // QUALIMPLAN — Sections (Part 2): Straumann, Structure, Indication, Process
 // ================================================
 
+const STRAUMANN_LOGO = "Straumann_Group.svg.png";
+
 // ---- STRAUMANN
 const STRAUMANN_PILLARS = [
   { title: "Mais confiança no planejamento.", text: "Tecnologia reconhecida na implantodontia aplicada a cada avaliação, sempre partindo das particularidades do seu caso." },
@@ -17,11 +19,11 @@ const Straumann = () => (
         <div>
           <Reveal>
             <div className="straumann-badge">
-              <div className="straumann-badge-logo">S</div>
-              <div className="straumann-badge-text">
-                <strong>Straumann Group</strong>
-                <span>Technology Partner</span>
-              </div>
+              <img
+                src={STRAUMANN_LOGO}
+                alt="Straumann Group"
+                className="straumann-badge-img"
+              />
             </div>
           </Reveal>
 

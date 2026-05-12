@@ -274,13 +274,6 @@ const Hero = () => (
 
       <Reveal delay={300} variant="scale" style={{ position: "relative" }}>
         <VideoPlaceholder label="Vídeo Principal" src="video1.mp4" tall showPlayBtn={false} />
-        <div className="hero-badge-float hero-badge-float-logo" aria-hidden="true">
-          <img
-            src={STRAUMANN_LOGO}
-            alt=""
-            className="hero-badge-float-logo-img"
-          />
-        </div>
       </Reveal>
     </div>
   </section>
