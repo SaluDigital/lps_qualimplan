@@ -198,7 +198,7 @@ const Social = () => {
               { n: "Estrutura", l: "Completa e própria" },
               { n: "Acolhimento", l: "Equipe preparada" },
               { n: "Próximo", l: "De você, no Capão Redondo" },
-              { n: "Sem convênio", l: "Atendimento particular" },
+              { n: "Sedação", l: "Consciente ou Intravenosa para melhor lhe atender" },
             ].map((s, i) => (
               <div key={i} className="social-stat">
                 <div className="social-stat-num"><em style={{fontFamily:"var(--f-display)"}}>{s.n}</em></div>

@@ -4,6 +4,7 @@
 const { useState, useEffect, useRef } = React;
 
 const WA_LINK = "https://api.whatsapp.com/send?phone=5511956188187&text=Ol%C3%A1,%20vim%20do%20Google%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20Implante%20Dent%C3%A1rio";
+const STRAUMANN_LOGO = "Straumann_Group.svg.png";
 
 // ---- Reveal (scroll-triggered)
 const Reveal = ({ children, as: As = "div", delay = 0, variant = "up", className = "", ...rest }) => {
@@ -232,7 +233,12 @@ const Hero = () => (
           <Reveal as="span" delay={80} style={{ display: "block" }}>Implante dentário</Reveal>
           <Reveal as="span" delay={180} style={{ display: "block" }}>no Capão Redondo</Reveal>
           <Reveal as="span" delay={280} style={{ display: "block" }}>
-            com <em>tecnologia</em> <span className="accent-word">Straumann</span>.
+            com <em>tecnologia</em>{" "}
+            <img
+              src={STRAUMANN_LOGO}
+              alt="Straumann Group"
+              className="hero-wordmark"
+            />
           </Reveal>
         </h1>
 
@@ -268,20 +274,12 @@ const Hero = () => (
 
       <Reveal delay={300} variant="scale" style={{ position: "relative" }}>
         <VideoPlaceholder label="Vídeo Principal" src="video1.mp4" tall showPlayBtn={false} />
-        <div className="hero-badge-float">
-          <div className="hero-badge-float-icon">
-            <Icon name="sparkle" size={18} />
-          </div>
-          <div className="hero-badge-float-text">
-            <strong>Tecnologia Straumann</strong>
-            <span>Reconhecida mundialmente</span>
-          </div>
-        </div>
-        <div className="hero-trust-float">
-          <span className="hero-trust-float-check">
-            <Icon name="check" size={12} style={{ strokeWidth: 2.5 }} />
-          </span>
-          Avaliação individualizada
+        <div className="hero-badge-float hero-badge-float-logo" aria-hidden="true">
+          <img
+            src={STRAUMANN_LOGO}
+            alt=""
+            className="hero-badge-float-logo-img"
+          />
         </div>
       </Reveal>
     </div>
@@ -335,12 +333,12 @@ const Metrics = () => (
 
 // ---- PAIN / IDENTIFICATION
 const PAIN_ITEMS = [
-  { label: "Dificuldade para mastigar", icon: "check" },
-  { label: "Vergonha ao sorrir", icon: "check" },
-  { label: "Desconforto com prótese móvel", icon: "check" },
-  { label: "Insegurança ao falar", icon: "check" },
-  { label: "Perda de confiança no dia a dia", icon: "check" },
-  { label: "Evitar fotos e refeições em público", icon: "check" },
+  { label: "Dificuldade para mastigar" },
+  { label: "Vergonha ao sorrir" },
+  { label: "Desconforto com prótese móvel" },
+  { label: "Insegurança ao falar" },
+  { label: "Perda de confiança no dia a dia" },
+  { label: "Evitar fotos e refeições em público" },
 ];
 
 const Pain = () => (
@@ -371,9 +369,6 @@ const Pain = () => (
       <div className="pain-cards">
         {PAIN_ITEMS.map((p, i) => (
           <Reveal key={i} delay={i * 80} className="pain-card">
-            <span className="pain-card-ico">
-              <Icon name="x" size={16} style={{ strokeWidth: 2 }} />
-            </span>
             <span className="pain-card-label">{p.label}</span>
           </Reveal>
         ))}

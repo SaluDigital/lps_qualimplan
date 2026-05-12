@@ -439,9 +439,12 @@ section { position: relative; }
   color: var(--qp-primary-deep);
   font-variation-settings: "opsz" 144, "SOFT" 80;
 }
-.hero h1 .accent-word {
-  color: var(--qp-accent-deep);
-  font-style: italic;
+.hero-wordmark {
+  display: inline-block;
+  width: clamp(220px, 34vw, 360px);
+  margin-left: 0.08em;
+  vertical-align: baseline;
+  transform: translateY(0.08em);
 }
 .hero-sub {
   font-size: clamp(17px, 1.5vw, 20px);
@@ -604,6 +607,18 @@ section { position: relative; }
   align-items: center;
   gap: 12px;
   z-index: 4;
+}
+.hero-badge-float-logo {
+  background: rgba(7, 24, 28, 0.78);
+  border: 1px solid rgba(255,255,255,0.14);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 18px 22px;
+}
+.hero-badge-float-logo-img {
+  width: clamp(150px, 18vw, 220px);
+  filter: brightness(0) invert(1);
+  opacity: 0.98;
 }
 .hero-badge-float-icon {
   width: 36px; height: 36px;
@@ -771,39 +786,32 @@ section { position: relative; }
 .pain-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 14px 28px;
 }
 .pain-card {
-  background: var(--qp-surface);
-  border: 1px solid var(--qp-line);
-  border-radius: var(--r-md);
-  padding: 20px 22px;
-  transition: all .3s ease;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 14px;
-}
-.pain-card:nth-child(even) { transform: translateY(24px); }
-.pain-card:hover {
-  border-color: var(--qp-primary-deep);
-  transform: translateY(-3px);
-  box-shadow: var(--sh-md);
-}
-.pain-card:nth-child(even):hover { transform: translateY(21px); }
-.pain-card-ico {
-  width: 38px; height: 38px;
-  border-radius: 10px;
-  background: rgba(181, 63, 69, 0.08);
-  color: #b53f45;
-  display: grid;
-  place-items: center;
+  align-items: flex-start;
+  padding: 0;
+  color: var(--qp-text);
 }
 .pain-card-label {
   font-size: 15px;
   font-weight: 500;
   color: var(--qp-text);
   line-height: 1.4;
+  position: relative;
+  padding-left: 18px;
+}
+.pain-card-label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.58em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--qp-primary);
+  transform: translateY(-50%);
 }
 
 /* ===== STRAUMANN ===== */
@@ -2111,13 +2119,11 @@ body.density-compact .hero { padding-top: 140px; padding-bottom: 60px; }
 
 /* Cards style — flat */
 body.cards-flat .metric-card,
-body.cards-flat .pain-card,
 body.cards-flat .indication-card,
 body.cards-flat .benefit-card {
   box-shadow: none !important;
 }
 body.cards-flat .metric-card:hover,
-body.cards-flat .pain-card:hover,
 body.cards-flat .benefit-card:hover {
   box-shadow: 0 1px 0 var(--qp-line) !important;
 }
@@ -2154,16 +2160,24 @@ body.cards-flat .benefit-card:hover {
   .hero-video { aspect-ratio: 4 / 5; }
   .hero-trust-float { display: none; }
   .hero-badge-float { left: 0; bottom: -12px; }
+  .hero-wordmark {
+    width: min(72vw, 280px);
+    margin-top: 0.08em;
+  }
+  .hero-badge-float-logo {
+    padding: 14px 16px;
+  }
+  .hero-badge-float-logo-img {
+    width: min(46vw, 180px);
+  }
   .metrics-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
   .straumann-grid, .benefits-grid { grid-template-columns: 1fr; gap: 16px; }
   .benefit-card { min-height: 240px; padding: 24px 20px; }
   .straumann-card { min-height: 220px; padding: 24px 20px; }
   .metric-card { padding: 22px 18px; }
   .metric-num { font-size: 42px; }
-  .pain-cards { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-  .pain-card { flex-direction: column; align-items: flex-start; padding: 16px 14px; }
-  .pain-card:nth-child(even) { transform: none; }
-  .pain-card:nth-child(even):hover { transform: translateY(-3px); }
+  .pain-cards { grid-template-columns: 1fr; gap: 12px; }
+  .pain-card { padding: 0; }
   .structure-mosaic { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 140px; }
   .mo-1, .mo-2, .mo-3 { grid-column: span 2; grid-row: span 1; }
   .mo-4 { grid-column: span 2; }
