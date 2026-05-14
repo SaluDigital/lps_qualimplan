@@ -264,12 +264,6 @@ const Hero = () => (
 
         </Reveal>
 
-        <Reveal delay={720}>
-          <div className="hero-micro">
-            <span className="hero-micro-dot"></span>
-            Resposta da equipe em horário comercial.
-          </div>
-        </Reveal>
       </div>
 
       <Reveal delay={300} variant="scale" style={{ position: "relative" }}>
@@ -281,7 +275,7 @@ const Hero = () => (
 
 // ---- METRICS
 const METRICS = [
-  { num: 13, suffix: "+", unit: "anos", label: "Transformando vidas e trazendo sorrisos de volta", icon: "crown" },
+  { num: 15, suffix: "+", unit: "anos", label: "Transformando vidas e trazendo sorrisos de volta", icon: "crown" },
   { num: 55, suffix: "k", unit: "", label: "Clientes atendidos com carinho e qualidade", icon: "users" },
   { num: 290, suffix: "k", unit: "", label: "Procedimentos realizados com excelência e cuidado", icon: "shield" },
   { num: 100, suffix: "k", unit: "", label: "Implantes realizados com tecnologia de ponta", icon: "tooth" },
