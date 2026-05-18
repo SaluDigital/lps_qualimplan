@@ -3,7 +3,7 @@
 // ================================================
 const { useState, useEffect, useRef } = React;
 
-const WA_LINK = "https://api.whatsapp.com/send?phone=5511956188187&text=Ol%C3%A1,%20vim%20do%20Google%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20Implante%20Dent%C3%A1rio";
+const WA_LINK = "https://api.whatsapp.com/send?phone=5511956188187&text=Ol%C3%A1,%20vim%20do%20Google%20e%20quero%20mais%20informa%C3%A7%C3%B5es%20sobre%20Implantes%20Straumann";
 const STRAUMANN_LOGO = "Straumann_Group.svg.png";
 
 // ---- Reveal (scroll-triggered)
